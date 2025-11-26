@@ -21,14 +21,16 @@ const Gallery: React.FC = () => {
           {/* Comparison 1 */}
           <div className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100">
             <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden group">
+               {/* Before Image: Textured, yellowish/brown fabric implying stains/age */}
                <img 
-                 src="https://images.unsplash.com/photo-1582582621959-48d27397dc69?q=80&w=2938&auto=format&fit=crop" 
-                 alt="Dirty mattress before cleaning"
+                 src="https://images.unsplash.com/photo-1629323714902-86720d588506?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Dirty stained mattress fabric before cleaning"
                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
                />
+               {/* After Image: Pristine white mattress texture */}
                <img 
-                 src="https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?q=80&w=2727&auto=format&fit=crop" 
-                 alt="Clean mattress after cleaning"
+                 src="https://images.unsplash.com/photo-1631049552240-59c37fcae896?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Clean white mattress after cleaning"
                  className="absolute inset-0 w-full h-full object-cover"
                />
                
@@ -52,14 +54,16 @@ const Gallery: React.FC = () => {
           {/* Comparison 2 */}
           <div className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100">
             <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden group">
+               {/* Before Image: Greyish/Dusty linen texture */}
                <img 
-                 src="https://images.unsplash.com/photo-1616627547584-978bc83dc938?q=80&w=2940&auto=format&fit=crop" 
-                 alt="Mattress with dust mite allergens"
+                 src="https://images.unsplash.com/photo-1540518614846-7eded433c457?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Dusty mattress fabric before sanitization"
                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
                />
+               {/* After Image: Bright white clean linen */}
                <img 
-                 src="https://images.unsplash.com/photo-1505693416388-95af37d8b5a5?q=80&w=2800&auto=format&fit=crop" 
-                 alt="Sanitized fresh mattress"
+                 src="https://images.unsplash.com/photo-1522771753035-4a5035411f2c?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Sanitized fresh mattress fabric"
                  className="absolute inset-0 w-full h-full object-cover"
                />
                
