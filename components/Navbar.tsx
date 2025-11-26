@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { IconMenu, IconX } from './Icons';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,10 +16,10 @@ const Navbar: React.FC = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Services', href: '#services' },
-    { name: 'Process', href: '#process' },
-    { name: 'Gallery', href: '#gallery' },
-    { name: 'Reviews', href: '#reviews' },
+    { name: t.nav.services, href: '#services' },
+    { name: t.nav.process, href: '#process' },
+    { name: t.nav.gallery, href: '#gallery' },
+    { name: t.nav.reviews, href: '#reviews' },
   ];
 
   return (
@@ -32,7 +34,7 @@ const Navbar: React.FC = () => {
             F
           </div>
           <span className={`text-xl font-bold tracking-tight ${isScrolled ? 'text-slate-900' : 'text-slate-900 lg:text-white'}`}>
-            Fresh Sleep Mattress Care
+            Fresh Sleep
           </span>
         </a>
 
@@ -49,11 +51,28 @@ const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
+          
+          {/* Language Toggle */}
+          <div className="flex items-center bg-primary-700/10 rounded-full p-1 border border-primary-500/20">
+             <button 
+               onClick={() => setLanguage('en')}
+               className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'en' ? 'bg-primary-600 text-white shadow-sm' : 'text-slate-500 hover:text-primary-600'}`}
+             >
+               EN
+             </button>
+             <button 
+               onClick={() => setLanguage('ro')}
+               className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'ro' ? 'bg-primary-600 text-white shadow-sm' : 'text-slate-500 hover:text-primary-600'}`}
+             >
+               RO
+             </button>
+          </div>
+
           <a
             href="#contact"
             className="px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-full text-sm font-semibold transition-all transform hover:scale-105 shadow-lg shadow-primary-500/30"
           >
-            Book Now
+            {t.nav.book}
           </a>
         </div>
 
@@ -79,12 +98,29 @@ const Navbar: React.FC = () => {
               {link.name}
             </a>
           ))}
+          
+          <div className="flex justify-center gap-4 py-2 border-y border-slate-100">
+            <button 
+               onClick={() => setLanguage('en')}
+               className={`font-bold ${language === 'en' ? 'text-primary-600' : 'text-slate-400'}`}
+             >
+               English
+             </button>
+             <span className="text-slate-300">|</span>
+             <button 
+               onClick={() => setLanguage('ro')}
+               className={`font-bold ${language === 'ro' ? 'text-primary-600' : 'text-slate-400'}`}
+             >
+               Română
+             </button>
+          </div>
+
           <a
             href="#contact"
             onClick={() => setIsMenuOpen(false)}
             className="mt-2 w-full text-center px-5 py-3 bg-primary-600 text-white rounded-xl font-semibold"
           >
-            Book Appointment
+            {t.nav.bookAppt}
           </a>
         </div>
       )}

@@ -2,19 +2,37 @@ import React, { useState, useRef, useEffect } from 'react';
 import { sendMessageToGemini } from '../services/geminiService';
 import { ChatMessage } from '../types';
 import { IconMessageCircle, IconX, IconSend, IconSparkles } from './Icons';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ChatBot: React.FC = () => {
+  const { t, language } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<ChatMessage[]>([
-    {
-      id: 'welcome',
-      role: 'model',
-      text: "Hi! I'm RestBot. Ask me anything about mattress stains, dust mites, or our cleaning process!"
-    }
-  ]);
+  const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const initialized = useRef(false);
+
+  // Initialize welcome message when language changes or first load
+  useEffect(() => {
+     // Reset messages if we want a fresh start on lang change, or just update the welcome message if it's the only one.
+     // For simplicity, let's just append or reset the initial state if empty.
+     if (!initialized.current || messages.length === 0) {
+        setMessages([{
+            id: 'welcome',
+            role: 'model',
+            text: t.chat.welcome
+        }]);
+        initialized.current = true;
+     } else if (messages.length === 1 && messages[0].id === 'welcome') {
+         // Update the existing welcome message if language changed and no interaction yet
+         setMessages([{
+            id: 'welcome',
+            role: 'model',
+            text: t.chat.welcome
+        }]);
+     }
+  }, [language, t.chat.welcome]);
 
   const toggleChat = () => setIsOpen(!isOpen);
 
@@ -64,8 +82,8 @@ const ChatBot: React.FC = () => {
                 <IconSparkles className="w-5 h-5 text-white" />
               </div>
               <div>
-                <h3 className="font-semibold text-sm">RestBot AI Advisor</h3>
-                <p className="text-xs text-primary-100">Ask about stains & hygiene</p>
+                <h3 className="font-semibold text-sm">{t.chat.header}</h3>
+                <p className="text-xs text-primary-100">{t.chat.subHeader}</p>
               </div>
             </div>
             <button onClick={toggleChat} className="text-white/80 hover:text-white transition-colors">
@@ -110,7 +128,7 @@ const ChatBot: React.FC = () => {
                 type="text"
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
-                placeholder="Ask about stain removal..."
+                placeholder={t.chat.inputPlaceholder}
                 className="flex-1 bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary-500/50 focus:border-primary-500"
               />
               <button
@@ -134,7 +152,7 @@ const ChatBot: React.FC = () => {
       >
         <IconMessageCircle className="w-6 h-6" />
         <span className="max-w-0 overflow-hidden whitespace-nowrap group-hover:max-w-xs transition-all duration-300 text-sm font-medium">
-          Ask an Expert
+          {t.chat.toggle}
         </span>
       </button>
     </div>

@@ -1,37 +1,39 @@
 import React from 'react';
 import { IconSparkles, IconDroplets, IconShieldCheck, IconStar } from './Icons';
-import { ServiceFeature } from '../types';
-
-const features: ServiceFeature[] = [
-  {
-    title: "Deep Steam Extraction",
-    description: "High-pressure hot water extraction penetrates deep into fibers to remove dirt and dead skin cells.",
-    icon: <IconDroplets className="w-6 h-6 text-white" />
-  },
-  {
-    title: "Allergen Removal",
-    description: "Eliminates dust mites, pet dander, and pollen, significantly improving sleep quality for allergy sufferers.",
-    icon: <IconShieldCheck className="w-6 h-6 text-white" />
-  },
-  {
-    title: "Stain Neutralization",
-    description: "Specialized enzyme treatments specifically designed to break down biological stains and yellowing.",
-    icon: <IconSparkles className="w-6 h-6 text-white" />
-  },
-  {
-    title: "Odor Elimination",
-    description: "We don't just mask odors; we destroy the bacteria causing them, leaving a neutral, fresh scent.",
-    icon: <IconStar className="w-6 h-6 text-white" />
-  }
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Features: React.FC = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      title: t.features.f1_title,
+      description: t.features.f1_desc,
+      icon: <IconDroplets className="w-6 h-6 text-white" />
+    },
+    {
+      title: t.features.f2_title,
+      description: t.features.f2_desc,
+      icon: <IconShieldCheck className="w-6 h-6 text-white" />
+    },
+    {
+      title: t.features.f3_title,
+      description: t.features.f3_desc,
+      icon: <IconSparkles className="w-6 h-6 text-white" />
+    },
+    {
+      title: t.features.f4_title,
+      description: t.features.f4_desc,
+      icon: <IconStar className="w-6 h-6 text-white" />
+    }
+  ];
+
   return (
     <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">Professional Care for Your Mattress</h2>
-          <p className="text-slate-500 text-lg">We use hospital-grade equipment and non-toxic solutions to deliver the deepest clean possible.</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t.features.title}</h2>
+          <p className="text-slate-500 text-lg">{t.features.subtitle}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">

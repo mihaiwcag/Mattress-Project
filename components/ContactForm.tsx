@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { IconPhone, IconMapPin, IconSend } from './Icons';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const ContactForm: React.FC = () => {
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success'>('idle');
+  const { t } = useLanguage();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -22,9 +24,9 @@ const ContactForm: React.FC = () => {
             {/* Contact Info */}
             <div className="lg:w-1/3 space-y-8">
               <div>
-                <h2 className="text-3xl font-bold text-slate-900 mb-4">Ready to Refresh?</h2>
+                <h2 className="text-3xl font-bold text-slate-900 mb-4">{t.contact.title}</h2>
                 <p className="text-slate-600 leading-relaxed">
-                  Book your slot today or get a free estimate. We usually respond within 15 minutes during business hours.
+                  {t.contact.subtitle}
                 </p>
               </div>
               
@@ -34,7 +36,7 @@ const ContactForm: React.FC = () => {
                     <IconPhone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">Call Us</h4>
+                    <h4 className="font-bold text-slate-900">{t.contact.call}</h4>
                     <p className="text-slate-500">(555) 123-4567</p>
                   </div>
                 </div>
@@ -44,8 +46,8 @@ const ContactForm: React.FC = () => {
                     <IconMapPin className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">Service Area</h4>
-                    <p className="text-slate-500">Greater Metropolitan Area & Suburbs</p>
+                    <h4 className="font-bold text-slate-900">{t.contact.area}</h4>
+                    <p className="text-slate-500">{t.contact.areaDesc}</p>
                   </div>
                 </div>
               </div>
@@ -58,39 +60,39 @@ const ContactForm: React.FC = () => {
                   <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
                     <IconSend className="w-8 h-8" />
                   </div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-2">Request Received!</h3>
-                  <p className="text-slate-600">We'll be in touch shortly to confirm your appointment details.</p>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{t.contact.successTitle}</h3>
+                  <p className="text-slate-600">{t.contact.successDesc}</p>
                   <button onClick={() => setStatus('idle')} className="mt-6 text-primary-600 font-semibold hover:underline">
-                    Send another request
+                    {t.contact.sendAnother}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-6">
                   <div className="col-span-2 md:col-span-1">
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Full Name</label>
-                    <input required type="text" className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder="John Doe" />
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.labelName}</label>
+                    <input required type="text" className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder={t.contact.placeholderName} />
                   </div>
                   <div className="col-span-2 md:col-span-1">
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Phone Number</label>
-                    <input required type="tel" className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder="(555) 000-0000" />
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.labelPhone}</label>
+                    <input required type="tel" className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder={t.contact.placeholderPhone} />
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Mattress Size / Service Type</label>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.labelService}</label>
                     <select className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all">
-                      <option>King Size Deep Clean</option>
-                      <option>Queen Size Deep Clean</option>
-                      <option>Full/Twin Size Deep Clean</option>
-                      <option>Stain Removal Only</option>
-                      <option>Other (Describe below)</option>
+                      <option>{t.contact.opt1}</option>
+                      <option>{t.contact.opt2}</option>
+                      <option>{t.contact.opt3}</option>
+                      <option>{t.contact.opt4}</option>
+                      <option>{t.contact.opt5}</option>
                     </select>
                   </div>
                   <div className="col-span-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-2">Message (Optional)</label>
-                    <textarea rows={4} className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder="Any specific stains or concerns?"></textarea>
+                    <label className="block text-sm font-medium text-slate-700 mb-2">{t.contact.labelMsg}</label>
+                    <textarea rows={4} className="w-full px-4 py-3 rounded-xl bg-white border border-slate-200 focus:ring-2 focus:ring-primary-500 focus:border-transparent outline-none transition-all" placeholder={t.contact.placeholderMsg}></textarea>
                   </div>
                   <div className="col-span-2">
                     <button type="submit" disabled={status === 'submitting'} className="w-full py-4 bg-primary-600 hover:bg-primary-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-primary-500/20 disabled:opacity-70 disabled:cursor-not-allowed">
-                      {status === 'submitting' ? 'Sending...' : 'Request Free Quote'}
+                      {status === 'submitting' ? t.contact.btnSending : t.contact.btnSubmit}
                     </button>
                   </div>
                 </form>

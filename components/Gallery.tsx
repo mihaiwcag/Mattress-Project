@@ -1,16 +1,19 @@
 import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Gallery: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="gallery" className="py-24 bg-slate-50">
       <div className="container mx-auto px-6">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
           <div>
-            <span className="text-primary-600 font-semibold tracking-wide uppercase text-sm">Real Results</span>
-            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">See The Difference</h2>
+            <span className="text-primary-600 font-semibold tracking-wide uppercase text-sm">{t.gallery.badge}</span>
+            <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2">{t.gallery.title}</h2>
           </div>
           <p className="text-slate-500 max-w-md text-sm md:text-base">
-            Our results speak for themselves. Slide through our recent restoration projects to see how effective our deep cleaning process is.
+            {t.gallery.description}
           </p>
         </div>
 
@@ -30,19 +33,19 @@ const Gallery: React.FC = () => {
                />
                
                <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md group-hover:opacity-0 transition-opacity">
-                 Before
+                 {t.gallery.before}
                </div>
                <div className="absolute top-4 right-4 bg-primary-600/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
-                 After
+                 {t.gallery.after}
                </div>
                
                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
-                  <p className="text-white font-medium text-center opacity-80 group-hover:opacity-0 transition-opacity">Hover to reveal clean</p>
+                  <p className="text-white font-medium text-center opacity-80 group-hover:opacity-0 transition-opacity">{t.gallery.hover}</p>
                </div>
             </div>
             <div className="mt-4 px-2">
-              <h3 className="font-bold text-slate-900 text-lg">Deep Stain Removal</h3>
-              <p className="text-slate-500 text-sm">5-year-old memory foam mattress restoration.</p>
+              <h3 className="font-bold text-slate-900 text-lg">{t.gallery.c1_title}</h3>
+              <p className="text-slate-500 text-sm">{t.gallery.c1_desc}</p>
             </div>
           </div>
 
@@ -61,19 +64,19 @@ const Gallery: React.FC = () => {
                />
                
                 <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md group-hover:opacity-0 transition-opacity">
-                 Before
+                 {t.gallery.before}
                </div>
                <div className="absolute top-4 right-4 bg-primary-600/90 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity">
-                 After
+                 {t.gallery.after}
                </div>
                
                <div className="absolute inset-x-0 bottom-0 p-6 bg-gradient-to-t from-black/60 to-transparent">
-                  <p className="text-white font-medium text-center opacity-80 group-hover:opacity-0 transition-opacity">Hover to reveal clean</p>
+                  <p className="text-white font-medium text-center opacity-80 group-hover:opacity-0 transition-opacity">{t.gallery.hover}</p>
                </div>
             </div>
             <div className="mt-4 px-2">
-              <h3 className="font-bold text-slate-900 text-lg">Allergen Sanitization</h3>
-              <p className="text-slate-500 text-sm">Full sanitation treatment for severe dust mite allergy.</p>
+              <h3 className="font-bold text-slate-900 text-lg">{t.gallery.c2_title}</h3>
+              <p className="text-slate-500 text-sm">{t.gallery.c2_desc}</p>
             </div>
           </div>
         </div>

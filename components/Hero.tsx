@@ -1,7 +1,10 @@
 import React from 'react';
 import { IconShieldCheck, IconClock, IconStar } from './Icons';
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Hero: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
       {/* Background Image with Overlay */}
@@ -18,26 +21,26 @@ const Hero: React.FC = () => {
         <div className="max-w-2xl">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-primary-700 text-xs font-semibold uppercase tracking-wide mb-6">
             <IconStar className="w-3.5 h-3.5 fill-primary-600 text-primary-600" fill />
-            #1 Rated Mattress Cleaning Service
+            {t.hero.rated}
           </div>
           
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
-            Fresh Sleep Mattress Care. <br />
+            {t.hero.titleStart} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
-              Wake Up Refreshed.
+              {t.hero.titleEnd}
             </span>
           </h1>
           
           <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-lg">
-            Remove 99.9% of dust mites, allergens, and stubborn stains with our eco-friendly deep steam technology. Restore your mattress to showroom condition.
+            {t.hero.subtitle}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <a href="#contact" className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold text-lg transition-all shadow-xl shadow-primary-500/30 flex items-center justify-center gap-2">
-              Get Your Free Quote
+              {t.hero.ctaQuote}
             </a>
             <a href="#process" className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2">
-              How It Works
+              {t.hero.ctaWorks}
             </a>
           </div>
 
@@ -46,13 +49,13 @@ const Hero: React.FC = () => {
               <div className="p-2 bg-green-50 rounded-lg text-green-600">
                 <IconShieldCheck className="w-5 h-5" />
               </div>
-              <span className="text-sm font-medium text-slate-700">100% Eco-Friendly</span>
+              <span className="text-sm font-medium text-slate-700">{t.hero.eco}</span>
             </div>
             <div className="flex items-center gap-3">
               <div className="p-2 bg-orange-50 rounded-lg text-orange-600">
                 <IconClock className="w-5 h-5" />
               </div>
-              <span className="text-sm font-medium text-slate-700">Dry in 2-4 Hours</span>
+              <span className="text-sm font-medium text-slate-700">{t.hero.dry}</span>
             </div>
           </div>
         </div>

@@ -1,37 +1,40 @@
 import React from 'react';
 import { IconStar } from './Icons';
-
-const testimonials = [
-  {
-    name: "Sarah Jenkins",
-    location: "Downtown",
-    text: "I was about to throw away my expensive mattress because of a coffee stain. PureRest saved it! Looks brand new.",
-    rating: 5
-  },
-  {
-    name: "Michael Chen",
-    location: "Westside",
-    text: "My allergies have improved significantly since the cleaning. The technicians were professional and on time.",
-    rating: 5
-  },
-  {
-    name: "Emma Wilson",
-    location: "Suburbs",
-    text: "Fast, efficient, and no chemical smell afterwards. Highly recommend for anyone with pets.",
-    rating: 5
-  }
-];
+import { useLanguage } from '../contexts/LanguageContext';
 
 const Testimonials: React.FC = () => {
+  const { t } = useLanguage();
+
+  const testimonials = [
+    {
+      name: "Sarah Jenkins",
+      location: "Downtown",
+      text: t.testimonials.t1,
+      rating: 5
+    },
+    {
+      name: "Michael Chen",
+      location: "Westside",
+      text: t.testimonials.t2,
+      rating: 5
+    },
+    {
+      name: "Emma Wilson",
+      location: "Suburbs",
+      text: t.testimonials.t3,
+      rating: 5
+    }
+  ];
+
   return (
     <section id="reviews" className="py-24 bg-primary-900 text-white">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Trusted by 500+ Homes</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">{t.testimonials.title}</h2>
           <div className="flex justify-center gap-1 text-yellow-400 mb-4">
             {[1, 2, 3, 4, 5].map((s) => <IconStar key={s} fill className="w-6 h-6" />)}
           </div>
-          <p className="text-primary-200">Average 4.9/5 rating based on local reviews</p>
+          <p className="text-primary-200">{t.testimonials.rating}</p>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
