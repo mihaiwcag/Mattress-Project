@@ -59,27 +59,33 @@ const Process: React.FC = () => {
           </div>
 
           <div className="lg:w-1/2 relative lg:sticky lg:top-32">
-             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100">
-               <img 
-                 src="https://images.unsplash.com/photo-1631049552057-403cdb8f0658?q=80&w=2940&auto=format&fit=crop" 
-                 alt="Mattress Cleaning and Sanitization"
-                 className="w-full h-full object-cover aspect-[3/4] lg:aspect-[4/5]"
-               />
-               <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-               <div className="absolute bottom-6 left-6 right-6">
-                 <div className="bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-lg">
-                   <div className="flex justify-between items-end mb-2">
-                     <span className="text-slate-500 text-sm font-medium uppercase tracking-wider">{t.process.effectiveness}</span>
-                     <span className="text-primary-600 font-bold text-3xl">99.99%</span>
-                   </div>
-                   <div className="w-full bg-slate-100 rounded-full h-2 mb-2">
-                     <div className="bg-primary-600 h-2 rounded-full w-[99.99%]"></div>
-                   </div>
-                   <p className="text-xs text-slate-500">{t.process.proven}</p>
-                 </div>
-               </div>
+             {/* Video Container */}
+             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-100 bg-slate-900 aspect-video group">
+               <iframe 
+                 width="100%" 
+                 height="100%" 
+                 src="https://www.youtube.com/embed/crKRSH2Xtmc?rel=0" 
+                 title="Mattress Cleaning Process" 
+                 frameBorder="0" 
+                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                 allowFullScreen
+                 className="absolute inset-0 w-full h-full"
+               ></iframe>
              </div>
-             {/* Decorative blob */}
+
+             {/* Stats Box - Moved below video */}
+             <div className="mt-6 bg-white p-6 rounded-2xl shadow-lg border border-slate-100 relative z-10">
+               <div className="flex justify-between items-end mb-2">
+                 <span className="text-slate-500 text-sm font-medium uppercase tracking-wider">{t.process.effectiveness}</span>
+                 <span className="text-primary-600 font-bold text-3xl">99.99%</span>
+               </div>
+               <div className="w-full bg-slate-100 rounded-full h-2 mb-2">
+                 <div className="bg-primary-600 h-2 rounded-full w-[99.99%]"></div>
+               </div>
+               <p className="text-xs text-slate-500">{t.process.proven}</p>
+             </div>
+
+             {/* Decorative blobs */}
              <div className="absolute -z-10 top-20 -right-20 w-72 h-72 bg-blue-50 rounded-full blur-3xl opacity-60"></div>
              <div className="absolute -z-10 -bottom-20 -left-20 w-72 h-72 bg-primary-50 rounded-full blur-3xl opacity-60"></div>
           </div>
