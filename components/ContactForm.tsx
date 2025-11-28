@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { IconPhone, IconMapPin, IconSend } from './Icons';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -16,9 +17,9 @@ const ContactForm: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-white/90 backdrop-blur-sm">
       <div className="container mx-auto px-6">
-        <div className="bg-slate-50 rounded-[2.5rem] p-8 md:p-16 shadow-lg border border-slate-100">
+        <div className="bg-slate-50/90 rounded-[2.5rem] p-8 md:p-16 shadow-lg border border-slate-100 backdrop-blur-md">
           <div className="flex flex-col lg:flex-row gap-16">
             
             {/* Contact Info */}
@@ -36,8 +37,17 @@ const ContactForm: React.FC = () => {
                     <IconPhone className="w-6 h-6" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900">{t.contact.call}</h4>
-                    <p className="text-slate-500">(555) 123-4567</p>
+                    <h4 className="font-bold text-slate-900 mb-2">{t.contact.call}</h4>
+                    <div className="flex flex-col gap-2">
+                      <a href="tel:+14169992647" className="group flex flex-wrap items-center gap-2 text-slate-600 hover:text-primary-600 transition-colors">
+                          <span className="font-bold font-mono tracking-tight">+1 416-999-2647</span>
+                          <span className="text-xs font-medium bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md border border-blue-100 group-hover:bg-primary-50 group-hover:text-primary-700">Mihai (EN)</span>
+                      </a>
+                      <a href="tel:+40727527147" className="group flex flex-wrap items-center gap-2 text-slate-600 hover:text-primary-600 transition-colors">
+                          <span className="font-bold font-mono tracking-tight">+40 727-527-147</span>
+                          <span className="text-xs font-medium bg-red-50 text-red-700 px-2 py-0.5 rounded-md border border-red-100 group-hover:bg-primary-50 group-hover:text-primary-700">Alex (RO)</span>
+                      </a>
+                    </div>
                   </div>
                 </div>
                 
@@ -56,7 +66,7 @@ const ContactForm: React.FC = () => {
             {/* Form */}
             <div className="lg:w-2/3">
               {status === 'success' ? (
-                <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-white rounded-3xl border border-green-100">
+                <div className="h-full flex flex-col items-center justify-center text-center p-8 bg-white/50 rounded-3xl border border-green-100">
                   <div className="w-16 h-16 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-4">
                     <IconSend className="w-8 h-8" />
                   </div>

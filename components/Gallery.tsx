@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useLayoutEffect } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { IconStar } from './Icons';
 
@@ -10,8 +10,31 @@ interface BeforeAfterSliderProps {
 
 const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ src, alt, type }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
+  const [containerWidth, setContainerWidth] = useState(0);
   const [isDragging, setIsDragging] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  // Use ResizeObserver to ensure the inner image is always the exact width of the container
+  // This prevents the "squashing" effect when the parent div is clipped to 50%
+  useLayoutEffect(() => {
+    if (!containerRef.current) return;
+
+    const updateWidth = () => {
+      if (containerRef.current) {
+        setContainerWidth(containerRef.current.offsetWidth);
+      }
+    };
+
+    updateWidth();
+    
+    const resizeObserver = new ResizeObserver(() => {
+        updateWidth();
+    });
+    
+    resizeObserver.observe(containerRef.current);
+
+    return () => resizeObserver.disconnect();
+  }, []);
 
   const handleMove = (clientX: number) => {
     if (containerRef.current) {
@@ -31,8 +54,7 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ src, alt, type })
   };
 
   const handleInteractionStart = () => setIsDragging(true);
-  const handleInteractionEnd = () => setIsDragging(false);
-
+  
   const handleClick = (e: React.MouseEvent) => {
     handleMove(e.clientX);
   };
@@ -84,7 +106,7 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ src, alt, type })
   return (
     <div 
       ref={containerRef}
-      className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-slate-200 group"
+      className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-slate-200 group bg-slate-100"
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
       onMouseDown={handleInteractionStart}
@@ -92,43 +114,44 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ src, alt, type })
       onClick={handleClick}
     >
       {/* Background Image (After / Clean) */}
-      {/* We apply a very subtle warmth to ensure it looks 'natural' not 'fake white' */}
       <img
         src={src}
-        alt={`${alt} - After Cleaning`}
+        alt={`${alt} after`}
         className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none"
         style={{ filter: 'brightness(1.03) saturate(1.02)' }}
+        onError={(e) => e.currentTarget.style.display = 'none'} 
       />
       
       {/* Label: After */}
-      <div className="absolute top-4 right-4 bg-white/90 text-primary-900 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider backdrop-blur-md z-10 shadow-sm">
+      <div className="absolute top-4 right-4 bg-white/90 text-primary-900 px-3 py-1 rounded-full text-xs font-extrabold uppercase tracking-wider backdrop-blur-md z-10 shadow-sm pointer-events-none">
         After
       </div>
 
       {/* Foreground Container (Before / Dirty) - Clipped */}
       <div 
-        className="absolute top-0 left-0 h-full overflow-hidden pointer-events-none will-change-[width]"
+        className="absolute top-0 left-0 h-full overflow-hidden pointer-events-none will-change-[width] z-10"
         style={{ width: `${sliderPosition}%` }}
       >
-        <div className="relative w-full h-full">
+        {/* Inner wrapper maintains the Full Width of the parent container to prevent image squashing */}
+        <div 
+          className="relative h-full" 
+          style={{ width: containerWidth ? `${containerWidth}px` : '100vw' }}
+        >
            {/* Base Dirty Image with Filter */}
            <img
             src={src}
-            alt={`${alt} - Before Cleaning`}
-            className="absolute top-0 left-0 max-w-none h-full object-cover"
+            alt="" 
+            className="absolute top-0 left-0 w-full h-full object-cover"
             style={{ 
-              width: containerRef.current ? containerRef.current.offsetWidth : '100%', 
               filter: styles.imgFilter 
-            }} 
+            }}
+            onError={(e) => e.currentTarget.style.display = 'none'} 
           />
           
           {/* Authentic Stain Overlay (Gradient) - Adds the realistic uneven texture */}
           <div 
             className="absolute inset-0 mix-blend-multiply pointer-events-none"
-            style={{ 
-              width: containerRef.current ? containerRef.current.offsetWidth : '100%',
-              background: styles.overlayGradient 
-            }}
+            style={{ background: styles.overlayGradient }}
           />
         </div>
 
@@ -186,7 +209,7 @@ const Gallery: React.FC = () => {
           {/* Comparison 1: Organic/Sweat Stains */}
           <div>
             <BeforeAfterSlider 
-              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=1000&auto=format&fit=crop"
               alt="Deep Stain Removal"
               type="sweat"
             />
@@ -204,7 +227,7 @@ const Gallery: React.FC = () => {
           {/* Comparison 2: Dust/Graying */}
           <div>
             <BeforeAfterSlider 
-              src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1582735689369-c635c67b70dd?q=80&w=1000&auto=format&fit=crop"
               alt="Texture Restoration"
               type="dust"
             />
@@ -219,10 +242,10 @@ const Gallery: React.FC = () => {
             </div>
           </div>
 
-          {/* Comparison 3: Biological/Pet Stain - New Image */}
+          {/* Comparison 3: Biological/Pet Stain - High Quality Fabric Texture */}
           <div>
             <BeforeAfterSlider 
-              src="https://images.unsplash.com/photo-1512918760513-95f19297d7c1?q=80&w=2000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1505691938895-1758d7fab51c?q=80&w=1000&auto=format&fit=crop"
               alt="Biological Stain Removal"
               type="biological"
             />
@@ -237,10 +260,10 @@ const Gallery: React.FC = () => {
             </div>
           </div>
 
-          {/* Comparison 4: Age/Oxidation - New Image */}
+          {/* Comparison 4: Age/Oxidation - White Bedroom Clean */}
           <div>
             <BeforeAfterSlider 
-              src="https://images.unsplash.com/photo-1505693416388-b0346efee535?q=80&w=2000&auto=format&fit=crop"
+              src="https://images.unsplash.com/photo-1505693416388-b0346efee535?q=80&w=1000&auto=format&fit=crop"
               alt="Age Restoration"
               type="age"
             />
