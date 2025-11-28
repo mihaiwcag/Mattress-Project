@@ -1,5 +1,5 @@
 import React from 'react';
-import { IconStar } from './Icons';
+import { IconStar, IconShieldCheck } from './Icons';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const Testimonials: React.FC = () => {
@@ -37,7 +37,7 @@ const Testimonials: React.FC = () => {
           <p className="text-primary-200">{t.testimonials.rating}</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 mb-16">
           {testimonials.map((review, i) => (
             <div key={i} className="bg-primary-800/50 p-8 rounded-2xl border border-primary-700/50 hover:bg-primary-800 transition-colors">
               <div className="flex gap-1 text-yellow-400 mb-4">
@@ -50,6 +50,22 @@ const Testimonials: React.FC = () => {
               </div>
             </div>
           ))}
+        </div>
+
+        {/* Business Certifications */}
+        <div className="border-t border-primary-800 pt-12 flex flex-wrap justify-center gap-8 md:gap-16 opacity-70 hover:opacity-100 transition-opacity">
+           <div className="flex items-center gap-3">
+             <IconShieldCheck className="w-6 h-6 text-primary-300" />
+             <span className="font-semibold">{t.testimonials.cert_insured}</span>
+           </div>
+           <div className="flex items-center gap-3">
+             <IconShieldCheck className="w-6 h-6 text-primary-300" />
+             <span className="font-semibold">{t.testimonials.cert_iicrc}</span>
+           </div>
+           <div className="flex items-center gap-3">
+             <IconShieldCheck className="w-6 h-6 text-primary-300" />
+             <span className="font-semibold">{t.testimonials.cert_bbb}</span>
+           </div>
         </div>
       </div>
     </section>

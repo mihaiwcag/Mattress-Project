@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { IconShieldCheck } from './Icons';
 
 const Process: React.FC = () => {
   const { t } = useLanguage();
@@ -83,6 +84,17 @@ const Process: React.FC = () => {
                  <div className="bg-primary-600 h-2 rounded-full w-[99.99%]"></div>
                </div>
                <p className="text-xs text-slate-500">{t.process.proven}</p>
+             </div>
+
+             {/* Safety Promise Box */}
+             <div className="mt-6 bg-blue-50 p-6 rounded-2xl border border-blue-100">
+                <div className="flex items-start gap-3">
+                   <IconShieldCheck className="w-6 h-6 text-primary-600 mt-1 flex-shrink-0" />
+                   <div>
+                     <h4 className="font-bold text-slate-900 mb-1">{t.process.safety_title}</h4>
+                     <p className="text-sm text-slate-600 leading-relaxed">{t.process.safety_desc}</p>
+                   </div>
+                </div>
              </div>
 
              {/* Decorative blobs */}

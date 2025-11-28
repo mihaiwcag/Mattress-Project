@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
+import { IconStar } from './Icons';
 
 const Gallery: React.FC = () => {
   const { t } = useLanguage();
@@ -17,13 +18,13 @@ const Gallery: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
-          {/* Comparison 1 */}
+        <div className="grid md:grid-cols-2 gap-8 mb-12">
+          {/* Comparison 1: General Discoloration/Aging */}
           <div className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100">
             <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden group cursor-ew-resize">
                {/* After Image: Clean (Bottom Layer) */}
                <img 
-                 src="https://images.unsplash.com/photo-1582582621959-48d27397dc69?q=80&w=2000&auto=format&fit=crop" 
+                 src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop" 
                  alt="Clean white mattress after cleaning"
                  className="absolute inset-0 w-full h-full object-cover"
                />
@@ -31,7 +32,7 @@ const Gallery: React.FC = () => {
                {/* Before Image: Dirty (Top Layer) - Fades out on hover */}
                <img 
                  src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop" 
-                 alt="Dirty stained mattress fabric before cleaning"
+                 alt="Yellowed and textured mattress fabric before cleaning"
                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
                />
                
@@ -52,20 +53,20 @@ const Gallery: React.FC = () => {
             </div>
           </div>
 
-          {/* Comparison 2 */}
+          {/* Comparison 2: Fabric Texture & Stains */}
           <div className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100">
             <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden group cursor-ew-resize">
                {/* After Image: Clean (Bottom Layer) */}
                <img 
-                 src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?q=80&w=2000&auto=format&fit=crop" 
+                 src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2000&auto=format&fit=crop" 
                  alt="Sanitized fresh mattress fabric"
                  className="absolute inset-0 w-full h-full object-cover"
                />
                
                {/* Before Image: Dirty (Top Layer) */}
                <img 
-                 src="https://images.unsplash.com/photo-1603252109303-27514432cd44?q=80&w=2000&auto=format&fit=crop" 
-                 alt="Dusty mattress fabric before sanitization"
+                 src="https://images.unsplash.com/photo-1616627561950-9f8482cc2d3e?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Dusty beige mattress fabric before sanitization"
                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
                />
                
@@ -85,6 +86,20 @@ const Gallery: React.FC = () => {
               <p className="text-slate-500 text-sm">{t.gallery.c2_desc}</p>
             </div>
           </div>
+        </div>
+
+        {/* Guarantee Banner */}
+        <div className="bg-gradient-to-r from-primary-600 to-primary-700 rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center gap-6 shadow-xl shadow-primary-900/10">
+           <div className="p-4 bg-white/10 rounded-full backdrop-blur-md">
+             <IconStar className="w-8 h-8 text-yellow-300" fill />
+           </div>
+           <div className="text-center md:text-left flex-1">
+             <h3 className="text-xl md:text-2xl font-bold text-white mb-2">{t.gallery.guarantee_title}</h3>
+             <p className="text-primary-100 text-sm md:text-base">{t.gallery.guarantee_desc}</p>
+           </div>
+           <a href="#contact" className="px-6 py-3 bg-white text-primary-600 rounded-xl font-bold hover:bg-primary-50 transition-colors">
+              {t.nav.book}
+           </a>
         </div>
       </div>
     </section>

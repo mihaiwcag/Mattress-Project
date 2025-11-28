@@ -38,7 +38,12 @@ const translations = {
       f3_title: "Stain Neutralization",
       f3_desc: "Specialized enzyme treatments specifically designed to break down biological stains and yellowing.",
       f4_title: "Odor Elimination",
-      f4_desc: "We don't just mask odors; we destroy the bacteria causing them, leaving a neutral, fresh scent."
+      f4_desc: "We don't just mask odors; we destroy the bacteria causing them, leaving a neutral, fresh scent.",
+      biz_title: "Beyond Residential",
+      biz_comm_title: "Commercial Services",
+      biz_comm_desc: "Bulk cleaning rates available for Hotels, AirBnBs, Dormitories, and Care Facilities.",
+      biz_emerg_title: "Emergency Service",
+      biz_emerg_desc: "Same-day appointments available for urgent biological spills and accidents."
     },
     process: {
       badge: "Revolutionary 5-Step System",
@@ -55,7 +60,9 @@ const translations = {
       s5_title: "Infrared Heating Chamber",
       s5_desc: "Safe infrared heat penetrates deep to ensure a 100% kill rate for bed bugs and eggs while ensuring the mattress is perfectly dry.",
       effectiveness: "Effectiveness",
-      proven: "Proven removal of viruses, bacteria & allergens"
+      proven: "Proven removal of viruses, bacteria & allergens",
+      safety_title: "Our Safety Promise",
+      safety_desc: "All technicians are bonded, insured, and undergo strict background checks. We use hospital-grade sanitization on our equipment between every job to prevent cross-contamination."
     },
     gallery: {
       badge: "Real Results",
@@ -67,14 +74,19 @@ const translations = {
       c1_title: "Deep Stain Removal",
       c1_desc: "5-year-old memory foam mattress restoration.",
       c2_title: "Allergen Sanitization",
-      c2_desc: "Full sanitation treatment for severe dust mite allergy."
+      c2_desc: "Full sanitation treatment for severe dust mite allergy.",
+      guarantee_title: "100% Satisfaction Guarantee",
+      guarantee_desc: "We stand by our results. If you don't see a visible improvement in stains or odor, we will re-clean the area for free."
     },
     testimonials: {
       title: "Trusted by 500+ Homes",
       rating: "Average 4.9/5 rating based on local reviews",
       t1: "I was about to throw away my expensive mattress because of a coffee stain. PureRest saved it! Looks brand new.",
       t2: "My allergies have improved significantly since the cleaning. The technicians were professional and on time.",
-      t3: "Fast, efficient, and no chemical smell afterwards. Highly recommend for anyone with pets."
+      t3: "Fast, efficient, and no chemical smell afterwards. Highly recommend for anyone with pets.",
+      cert_insured: "Fully Insured & Bonded",
+      cert_iicrc: "IICRC Certified Technicians",
+      cert_bbb: "BBB Accredited Business"
     },
     contact: {
       title: "Ready to Refresh?",
@@ -143,7 +155,12 @@ const translations = {
       f3_title: "Neutralizare Pete",
       f3_desc: "Tratamente enzimatice specializate concepute special pentru a descompune petele biologice și îngălbenirea.",
       f4_title: "Eliminare Mirosuri",
-      f4_desc: "Nu doar mascăm mirosurile; distrugem bacteriile care le provoacă, lăsând un miros neutru și proaspăt."
+      f4_desc: "Nu doar mascăm mirosurile; distrugem bacteriile care le provoacă, lăsând un miros neutru și proaspăt.",
+      biz_title: "Dincolo de Rezidențial",
+      biz_comm_title: "Servicii Comerciale",
+      biz_comm_desc: "Tarife de volum disponibile pentru Hoteluri, AirBnB-uri, Cămine și Centre de Îngrijire.",
+      biz_emerg_title: "Serviciu de Urgență",
+      biz_emerg_desc: "Programări în aceeași zi disponibile pentru incidente biologice urgente."
     },
     process: {
       badge: "Sistem Revoluționar în 5 Pași",
@@ -160,7 +177,9 @@ const translations = {
       s5_title: "Cameră de Încălzire cu Infraroșu",
       s5_desc: "Căldura infraroșie sigură penetrează adânc pentru a asigura o rată de distrugere de 100% a ploșnițelor și ouălor acestora, asigurând în același timp uscarea perfectă a saltelei.",
       effectiveness: "Eficacitate",
-      proven: "Eliminare dovedită a virusurilor, bacteriilor și alergenilor"
+      proven: "Eliminare dovedită a virusurilor, bacteriilor și alergenilor",
+      safety_title: "Promisiunea Noastră de Siguranță",
+      safety_desc: "Toți tehnicienii sunt asigurați și trec prin verificări stricte. Utilizăm igienizare de grad spitalicesc pe echipamentele noastre între fiecare lucrare pentru a preveni contaminarea încrucișată."
     },
     gallery: {
       badge: "Rezultate Reale",
@@ -172,14 +191,19 @@ const translations = {
       c1_title: "Eliminare Pete Profunde",
       c1_desc: "Restaurare saltea spumă cu memorie veche de 5 ani.",
       c2_title: "Igienizare Alergeni",
-      c2_desc: "Tratament complet de igienizare pentru alergie severă la praf."
+      c2_desc: "Tratament complet de igienizare pentru alergie severă la praf.",
+      guarantee_title: "Garanție 100% de Satisfacție",
+      guarantee_desc: "Ne susținem rezultatele. Dacă nu vedeți o îmbunătățire vizibilă a petelor sau mirosului, vom recurăța zona gratuit."
     },
     testimonials: {
       title: "De Încredere în 500+ Case",
       rating: "Rating mediu 4.9/5 bazat pe recenzii locale",
       t1: "Eram pe punctul de a arunca salteaua mea scumpă din cauza unei pete de cafea. PureRest a salvat-o! Arată ca nouă.",
       t2: "Alergiile mele s-au îmbunătățit semnificativ de la curățare. Tehnicienii au fost profesioniști și punctuali.",
-      t3: "Rapid, eficient și fără miros chimic după. Recomand cu tărie pentru oricine are animale de companie."
+      t3: "Rapid, eficient și fără miros chimic după. Recomand cu tărie pentru oricine are animale de companie.",
+      cert_insured: "Complet Asigurat",
+      cert_iicrc: "Tehnicieni Certificați IICRC",
+      cert_bbb: "Afacere Acreditată BBB"
     },
     contact: {
       title: "Gata de Reîmprospătare?",
