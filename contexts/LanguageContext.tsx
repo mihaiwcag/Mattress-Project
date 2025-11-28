@@ -92,6 +92,10 @@ const translations = {
       c1_desc: "Heavy yellowing and sweat stain restoration.",
       c2_title: "Texture Restoration",
       c2_desc: "Removing gray buildup from pillow-top patterns.",
+      c3_title: "Biological Accident",
+      c3_desc: "Complete removal of pet urine stains and odors.",
+      c4_title: "Age Restoration",
+      c4_desc: "Restoring brightness to a 10-year-old luxury mattress.",
       guarantee_title: "100% Satisfaction Guarantee",
       guarantee_desc: "We stand by our results. If you don't see a visible improvement in stains or odor, we will re-clean the area for free."
     },
@@ -235,6 +239,10 @@ const translations = {
       c1_desc: "Restaurare saltea spumă cu memorie veche de 5 ani.",
       c2_title: "Igienizare Alergeni",
       c2_desc: "Tratament complet de igienizare pentru alergie severă la praf.",
+      c3_title: "Accident Biologic",
+      c3_desc: "Eliminare completă pete urină animale și mirosuri.",
+      c4_title: "Restaurare Vechime",
+      c4_desc: "Redarea strălucirii unei saltele de lux veche de 10 ani.",
       guarantee_title: "Garanție 100% de Satisfacție",
       guarantee_desc: "Ne susținem rezultatele. Dacă nu vedeți o îmbunătățire vizibilă a petelor sau mirosului, vom recurăța zona gratuit."
     },

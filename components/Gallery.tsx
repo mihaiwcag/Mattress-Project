@@ -5,7 +5,7 @@ import { IconStar } from './Icons';
 interface BeforeAfterSliderProps {
   src: string;
   alt: string;
-  type: 'sweat' | 'dust'; // Define specific stain aesthetic
+  type: 'sweat' | 'dust' | 'biological' | 'age'; // Define specific stain aesthetic
 }
 
 const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ src, alt, type }) => {
@@ -49,18 +49,33 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ src, alt, type })
 
   // Aesthetic Logic: Authentic Stain Simulation
   const getBeforeStyles = () => {
-    if (type === 'sweat') {
-      // Simulates organic biological stains (yellowing/browning) typically found in center
-      return {
-        imgFilter: 'sepia(0.5) brightness(0.92) contrast(1.05) saturate(1.2)',
-        overlayGradient: 'radial-gradient(ellipse at 50% 50%, rgba(140, 100, 40, 0.35) 0%, rgba(140, 100, 40, 0.1) 50%, transparent 80%)'
-      };
-    } else {
-      // Simulates dust, dander, and general graying over time
-      return {
-        imgFilter: 'grayscale(0.5) brightness(0.85) contrast(1.05) sepia(0.1)',
-        overlayGradient: 'radial-gradient(circle at 30% 30%, rgba(80, 80, 80, 0.25) 0%, transparent 50%), radial-gradient(circle at 70% 70%, rgba(80, 80, 80, 0.25) 0%, transparent 50%)'
-      };
+    switch(type) {
+      case 'sweat':
+        // Simulates organic biological stains (yellowing/browning) typical for memory foam
+        return {
+          imgFilter: 'sepia(0.6) brightness(0.9) contrast(1.1) saturate(1.3)',
+          overlayGradient: 'radial-gradient(ellipse at 50% 50%, rgba(160, 110, 40, 0.4) 0%, rgba(140, 100, 40, 0.1) 60%, transparent 90%)'
+        };
+      case 'dust':
+         // Simulates dust, dander, and general graying over time on textured fabric
+        return {
+          imgFilter: 'grayscale(0.6) brightness(0.8) contrast(1.1) sepia(0.1)',
+          overlayGradient: 'radial-gradient(circle at 30% 30%, rgba(60, 60, 60, 0.3) 0%, transparent 60%), radial-gradient(circle at 80% 80%, rgba(60, 60, 60, 0.3) 0%, transparent 60%)'
+        };
+      case 'biological':
+        // Simulates pet urine or concentrated spills (darker, orange/yellow localized spot)
+        return {
+          imgFilter: 'sepia(0.7) brightness(0.85) contrast(1.2) hue-rotate(-10deg)',
+          overlayGradient: 'radial-gradient(circle at 60% 40%, rgba(180, 120, 20, 0.5) 0%, rgba(160, 100, 20, 0.2) 40%, transparent 70%)'
+        };
+      case 'age':
+        // Simulates general oxidation and heavy yellowing of older fabric (overall tint + vignette)
+        return {
+          imgFilter: 'sepia(0.8) brightness(0.75) contrast(0.95) saturate(0.8)',
+          overlayGradient: 'radial-gradient(circle at 50% 50%, transparent 40%, rgba(100, 80, 40, 0.4) 100%)'
+        };
+      default:
+        return { imgFilter: '', overlayGradient: '' };
     }
   };
 
@@ -69,7 +84,7 @@ const BeforeAfterSlider: React.FC<BeforeAfterSliderProps> = ({ src, alt, type })
   return (
     <div 
       ref={containerRef}
-      className="relative w-full h-64 md:h-96 rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-slate-200 group"
+      className="relative w-full h-64 md:h-80 rounded-2xl overflow-hidden cursor-ew-resize select-none shadow-2xl border border-slate-200 group"
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
       onMouseDown={handleInteractionStart}
@@ -201,6 +216,42 @@ const Gallery: React.FC = () => {
                 </span>
               </h3>
               <p className="text-slate-500 text-sm mt-1">{t.gallery.c2_desc}</p>
+            </div>
+          </div>
+
+          {/* Comparison 3: Biological/Pet Stain - New Image */}
+          <div>
+            <BeforeAfterSlider 
+              src="https://images.unsplash.com/photo-1512918760513-95f19297d7c1?q=80&w=2000&auto=format&fit=crop"
+              alt="Biological Stain Removal"
+              type="biological"
+            />
+             <div className="mt-6 px-2">
+              <h3 className="font-bold text-slate-900 text-lg flex items-center gap-2">
+                {t.gallery.c3_title}
+                <span className="text-xs font-normal px-2 py-0.5 bg-primary-100 text-primary-700 rounded-full border border-primary-200">
+                  Interactive
+                </span>
+              </h3>
+              <p className="text-slate-500 text-sm mt-1">{t.gallery.c3_desc}</p>
+            </div>
+          </div>
+
+          {/* Comparison 4: Age/Oxidation - New Image */}
+          <div>
+            <BeforeAfterSlider 
+              src="https://images.unsplash.com/photo-1505693416388-b0346efee535?q=80&w=2000&auto=format&fit=crop"
+              alt="Age Restoration"
+              type="age"
+            />
+             <div className="mt-6 px-2">
+              <h3 className="font-bold text-slate-900 text-lg flex items-center gap-2">
+                {t.gallery.c4_title}
+                <span className="text-xs font-normal px-2 py-0.5 bg-primary-100 text-primary-700 rounded-full border border-primary-200">
+                  Interactive
+                </span>
+              </h3>
+              <p className="text-slate-500 text-sm mt-1">{t.gallery.c4_desc}</p>
             </div>
           </div>
         </div>
