@@ -19,43 +19,52 @@ const Hero: React.FC = () => {
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-primary-700 text-xs font-semibold uppercase tracking-wide mb-6">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-primary-700 text-xs font-semibold mb-6">
             <IconStar className="w-3.5 h-3.5 fill-primary-600 text-primary-600" fill />
             {t.hero.rated}
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-6">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-12">
             {t.hero.titleStart} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
               {t.hero.titleEnd}
             </span>
           </h1>
-          
-          <p className="text-lg md:text-xl text-slate-600 mb-8 leading-relaxed max-w-lg">
-            {t.hero.subtitle}
-          </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <a href="#contact" className="px-8 py-4 bg-primary-600 hover:bg-primary-700 text-white rounded-xl font-semibold text-lg transition-all shadow-xl shadow-primary-500/30 flex items-center justify-center gap-2">
-              {t.hero.ctaQuote}
-            </a>
-            <a href="#process" className="px-8 py-4 bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 rounded-xl font-semibold text-lg transition-all flex items-center justify-center gap-2">
-              {t.hero.ctaWorks}
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6 border-t border-slate-200 pt-8">
+          <div className="flex flex-col gap-4 border-t border-slate-200 pt-8">
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-green-50 rounded-lg text-green-600">
+              <div className="p-2 bg-green-50 rounded-lg text-green-600 flex-shrink-0">
                 <IconShieldCheck className="w-5 h-5" />
               </div>
-              <span className="text-sm font-medium text-slate-700">{t.hero.eco}</span>
+              <span className="font-medium text-slate-700">{t.hero.eco}</span>
             </div>
+            
             <div className="flex items-center gap-3">
-              <div className="p-2 bg-orange-50 rounded-lg text-orange-600">
+              <div className="p-2 bg-teal-50 rounded-lg text-teal-600 flex-shrink-0">
+                <IconShieldCheck className="w-5 h-5" />
+              </div>
+              <span className="font-medium text-slate-700">{t.hero.no_chem}</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <div className="p-2 bg-orange-50 rounded-lg text-orange-600 flex-shrink-0">
                 <IconClock className="w-5 h-5" />
               </div>
-              <span className="text-sm font-medium text-slate-700">{t.hero.dry}</span>
+              <span className="font-medium text-slate-700">{t.hero.dry}</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+               <div className="p-2 bg-blue-50 rounded-lg text-blue-600 flex-shrink-0">
+                <IconStar className="w-5 h-5" />
+              </div>
+              <span className="font-medium text-slate-700">{t.hero.kill_virus}</span>
+            </div>
+            
+             <div className="flex items-center gap-3">
+               <div className="p-2 bg-red-50 rounded-lg text-red-600 flex-shrink-0">
+                <IconShieldCheck className="w-5 h-5" />
+              </div>
+              <span className="font-medium text-slate-700">{t.hero.kill_bugs}</span>
             </div>
           </div>
         </div>

@@ -19,14 +19,17 @@ const translations = {
       bookAppt: "Book Appointment"
     },
     hero: {
-      rated: "#1 Rated Mattress Cleaning Service",
+      rated: "#1 Rated Mattress Cleaning Service — A pioneer in advanced mattress sanitization, redefining cleanliness, safety, and customer care.",
       titleStart: "Fresh Sleep Mattress Care.",
       titleEnd: "Wake Up Refreshed.",
       subtitle: "Remove 99.9% of dust mites, allergens, and stubborn stains with our eco-friendly deep steam technology. Restore your mattress to showroom condition.",
       ctaQuote: "Get Your Free Quote",
       ctaWorks: "How It Works",
       eco: "100% Eco-Friendly",
-      dry: "Dry in 2-4 Hours"
+      no_chem: "No Chemicals",
+      dry: "Dry in 15 Minutes",
+      kill_virus: "Remove 99.99% of viruses, bacteria, dust mites and other allergens",
+      kill_bugs: "100% kills Bed Bugs"
     },
     features: {
       title: "Professional Care for Your Mattress",
@@ -155,14 +158,17 @@ const translations = {
       bookAppt: "Programează Acum"
     },
     hero: {
-      rated: "#1 Serviciu de Curățare Saltele",
+      rated: "#1 Serviciu de Curățare Saltele — Un pionier în igienizarea avansată, redefinind curățenia, siguranța și grija pentru clienți.",
       titleStart: "Fresh Sleep Îngrijire Saltele.",
       titleEnd: "Trezește-te Odihnit.",
       subtitle: "Elimină 99,9% din acarieni, alergeni și pete dificile cu tehnologia noastră ecologică pe bază de abur. Restaurează salteaua la condiția de nou.",
       ctaQuote: "Cere Ofertă Gratuită",
       ctaWorks: "Cum Funcționează",
       eco: "100% Ecologic",
-      dry: "Uscare în 2-4 Ore"
+      no_chem: "Fără Chimicale",
+      dry: "Uscare în 15 Minute",
+      kill_virus: "Elimină 99,99% din virusuri, bacterii, acarieni și alți alergeni",
+      kill_bugs: "Distruge 100% Ploșnițele"
     },
     features: {
       title: "Îngrijire Profesională pentru Salteaua Ta",
