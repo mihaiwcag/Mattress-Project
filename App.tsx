@@ -8,6 +8,7 @@ import Testimonials from './components/Testimonials';
 import ContactForm from './components/ContactForm';
 import Footer from './components/Footer';
 import ChatBot from './components/ChatBot';
+import StainConsultant from './components/StainConsultant';
 import { LanguageProvider } from './contexts/LanguageContext';
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
           <Hero />
           <Features />
           <Process />
+          <StainConsultant />
           <Gallery />
           <Testimonials />
           <ContactForm />

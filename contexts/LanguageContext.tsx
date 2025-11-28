@@ -124,6 +124,15 @@ const translations = {
       inputPlaceholder: "Ask about stain removal...",
       toggle: "Ask an Expert",
       welcome: "Hi! I'm RestBot. Ask me anything about mattress stains, dust mites, or our cleaning process!"
+    },
+    consultant: {
+      title: "AI Stain Consultant",
+      subtitle: "Not sure what to do? Describe your stain below and get instant expert advice on immediate mitigation steps before we arrive.",
+      placeholder: "e.g., I spilled red wine on my memory foam mattress about an hour ago...",
+      button: "Analyze Stain",
+      analyzing: "Analyzing...",
+      resultTitle: "Expert Recommendation:",
+      disclaimer: "Note: These are emergency mitigation steps. Deep set stains require professional extraction to prevent mold and permanent discoloration."
     }
   },
   ro: {
@@ -241,6 +250,15 @@ const translations = {
       inputPlaceholder: "Întreabă despre scoaterea petelor...",
       toggle: "Întreabă un Expert",
       welcome: "Salut! Sunt RestBot. Întreabă-mă orice despre pete de saltea, acarieni sau procesul nostru de curățare!"
+    },
+    consultant: {
+      title: "Consultant AI pentru Pete",
+      subtitle: "Nu ești sigur ce să faci? Descrie pata mai jos și primește sfaturi experte instantanee pentru pașii de atenuare imediată înainte de sosirea noastră.",
+      placeholder: "ex: Am vărsat vin roșu pe salteaua din spumă cu memorie acum o oră...",
+      button: "Analizează Pata",
+      analyzing: "Se analizează...",
+      resultTitle: "Recomandare Expert:",
+      disclaimer: "Notă: Aceștia sunt pași de urgență. Petele adânci necesită extracție profesională pentru a preveni mucegaiul și decolorarea permanentă."
     }
   }
 };

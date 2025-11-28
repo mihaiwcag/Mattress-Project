@@ -51,3 +51,29 @@ export const sendMessageToGemini = async (message: string): Promise<string> => {
     return "I'm experiencing a temporary issue. Please try again in a moment.";
   }
 };
+
+export const getStainAdvice = async (stainDescription: string, language: 'en' | 'ro'): Promise<string> => {
+  try {
+    const ai = getClient();
+    const prompt = `
+      Act as a professional mattress cleaning expert for 'Fresh Sleep Mattress Care'.
+      The user has a stain described as: "${stainDescription}".
+      Provide brief, safe, step-by-step DIY advice for immediate mitigation.
+      Warn against using too much water.
+      End by recommending professional steam extraction for complete removal.
+      Respond in ${language === 'ro' ? 'Romanian' : 'English'}.
+    `;
+    
+    const response = await ai.models.generateContent({
+      model: 'gemini-2.5-flash',
+      contents: prompt,
+    });
+    
+    return response.text || (language === 'ro' ? "Nu am putut genera un sfat." : "Could not generate advice.");
+  } catch (error) {
+    console.error("Stain advice error:", error);
+    return language === 'ro' 
+      ? "A apărut o eroare. Vă rugăm să încercați din nou." 
+      : "An error occurred. Please try again.";
+  }
+};
