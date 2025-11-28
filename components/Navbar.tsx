@@ -15,6 +15,20 @@ const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const targetId = href.replace('#', '');
+    const element = document.getElementById(targetId);
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80; // Subtract nav height
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+      setIsMenuOpen(false);
+    }
+  };
+
   const navLinks = [
     { name: t.nav.services, href: '#services' },
     { name: t.nav.process, href: '#process' },
@@ -29,7 +43,7 @@ const Navbar: React.FC = () => {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2 group">
+        <a href="#" onClick={(e) => handleNavClick(e, '#')} className="flex items-center gap-2 group">
           <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center text-white font-bold text-xl group-hover:bg-primary-700 transition-colors">
             F
           </div>
@@ -44,6 +58,7 @@ const Navbar: React.FC = () => {
             <a
               key={link.name}
               href={link.href}
+              onClick={(e) => handleNavClick(e, link.href)}
               className={`text-sm font-medium hover:text-primary-500 transition-colors ${
                 isScrolled ? 'text-slate-600' : 'text-slate-200 hover:text-white'
               }`}
@@ -70,6 +85,7 @@ const Navbar: React.FC = () => {
 
           <a
             href="#contact"
+            onClick={(e) => handleNavClick(e, '#contact')}
             className="px-5 py-2.5 bg-primary-600 hover:bg-primary-700 text-white rounded-full text-sm font-semibold transition-all transform hover:scale-105 shadow-lg shadow-primary-500/30"
           >
             {t.nav.book}
@@ -93,7 +109,7 @@ const Navbar: React.FC = () => {
               key={link.name}
               href={link.href}
               className="text-lg font-medium text-slate-600 hover:text-primary-600"
-              onClick={() => setIsMenuOpen(false)}
+              onClick={(e) => handleNavClick(e, link.href)}
             >
               {link.name}
             </a>
@@ -117,7 +133,7 @@ const Navbar: React.FC = () => {
 
           <a
             href="#contact"
-            onClick={() => setIsMenuOpen(false)}
+            onClick={(e) => handleNavClick(e, '#contact')}
             className="mt-2 w-full text-center px-5 py-3 bg-primary-600 text-white rounded-xl font-semibold"
           >
             {t.nav.bookAppt}

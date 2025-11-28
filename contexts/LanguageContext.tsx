@@ -43,7 +43,17 @@ const translations = {
       biz_comm_title: "Commercial Services",
       biz_comm_desc: "Bulk cleaning rates available for Hotels, AirBnBs, Dormitories, and Care Facilities.",
       biz_emerg_title: "Emergency Service",
-      biz_emerg_desc: "Same-day appointments available for urgent biological spills and accidents."
+      biz_emerg_desc: "Same-day appointments available for urgent biological spills and accidents.",
+      more_services_title: "Complete Home Cleaning Services",
+      more_services_subtitle: "We offer a full range of specialized cleaning services for your home.",
+      service_airduct: "Air Duct Cleaning Services",
+      service_carpet: "Carpet & Upholstery Cleaning",
+      service_hardwood: "Hardwood Floors",
+      service_housekeeping: "Housekeeping",
+      service_tile: "Tile, Grout & Specialty Stone Cleaning",
+      service_windows: "Windows & Eavestroughs",
+      service_moving: "Moving / Relocation",
+      service_nicotine: "Nicotine Stain & Smoker Cleanup"
     },
     process: {
       badge: "Revolutionary 5-Step System",
@@ -72,9 +82,9 @@ const translations = {
       after: "After",
       hover: "Hover to reveal clean",
       c1_title: "Deep Stain Removal",
-      c1_desc: "5-year-old memory foam mattress restoration.",
-      c2_title: "Allergen Sanitization",
-      c2_desc: "Full sanitation treatment for severe dust mite allergy.",
+      c1_desc: "Heavy yellowing and sweat stain restoration.",
+      c2_title: "Texture Restoration",
+      c2_desc: "Removing gray buildup from pillow-top patterns.",
       guarantee_title: "100% Satisfaction Guarantee",
       guarantee_desc: "We stand by our results. If you don't see a visible improvement in stains or odor, we will re-clean the area for free."
     },
@@ -169,7 +179,17 @@ const translations = {
       biz_comm_title: "Servicii Comerciale",
       biz_comm_desc: "Tarife de volum disponibile pentru Hoteluri, AirBnB-uri, Cămine și Centre de Îngrijire.",
       biz_emerg_title: "Serviciu de Urgență",
-      biz_emerg_desc: "Programări în aceeași zi disponibile pentru incidente biologice urgente."
+      biz_emerg_desc: "Programări în aceeași zi disponibile pentru incidente biologice urgente.",
+      more_services_title: "Servicii Complete de Curățenie",
+      more_services_subtitle: "Oferim o gamă completă de servicii specializate de curățenie pentru casa ta.",
+      service_airduct: "Curățare Tubulatură Aer",
+      service_carpet: "Curățare Covoare și Tapițerie",
+      service_hardwood: "Podele din Lemn Masiv",
+      service_housekeeping: "Menaj",
+      service_tile: "Gresie, Rosturi și Piatră Specială",
+      service_windows: "Geamuri și Jgheaburi",
+      service_moving: "Mutări / Relocare",
+      service_nicotine: "Curățare Pete Nicotină și Fumători"
     },
     process: {
       badge: "Sistem Revoluționar în 5 Pași",

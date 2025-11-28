@@ -19,21 +19,24 @@ const Gallery: React.FC = () => {
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-12">
-          {/* Comparison 1: General Discoloration/Aging */}
+          {/* Comparison 1: Patterned Mattress - Deep Stains */}
           <div className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100">
             <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden group cursor-ew-resize">
                {/* After Image: Clean (Bottom Layer) */}
+               {/* We use the same image but without filters for the clean look */}
                <img 
                  src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop" 
-                 alt="Clean white mattress after cleaning"
+                 alt="Clean white patterned mattress"
                  className="absolute inset-0 w-full h-full object-cover"
                />
                
                {/* Before Image: Dirty (Top Layer) - Fades out on hover */}
+               {/* We use CSS filters to simulate heavy yellowing and age on the exact same texture */}
                <img 
-                 src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop" 
-                 alt="Yellowed and textured mattress fabric before cleaning"
+                 src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?q=80&w=2070&auto=format&fit=crop" 
+                 alt="Yellowed and stained mattress fabric before cleaning"
                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
+                 style={{ filter: 'sepia(0.8) contrast(1.1) brightness(0.9) saturate(1.5)' }} 
                />
                
                <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md group-hover:opacity-0 transition-opacity duration-700">
@@ -53,21 +56,23 @@ const Gallery: React.FC = () => {
             </div>
           </div>
 
-          {/* Comparison 2: Fabric Texture & Stains */}
+          {/* Comparison 2: Fabric Texture & Graying */}
           <div className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100">
             <div className="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden group cursor-ew-resize">
                {/* After Image: Clean (Bottom Layer) */}
                <img 
-                 src="https://images.unsplash.com/photo-1584132967334-10e028bd69f7?q=80&w=2000&auto=format&fit=crop" 
-                 alt="Sanitized fresh mattress fabric"
+                 src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop" 
+                 alt="Sanitized fresh mattress fabric close up"
                  className="absolute inset-0 w-full h-full object-cover"
+                 style={{ filter: 'brightness(1.05)' }}
                />
                
                {/* Before Image: Dirty (Top Layer) */}
                <img 
-                 src="https://images.unsplash.com/photo-1616627561950-9f8482cc2d3e?q=80&w=2000&auto=format&fit=crop" 
+                 src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=2000&auto=format&fit=crop" 
                  alt="Dusty beige mattress fabric before sanitization"
                  className="absolute inset-0 w-full h-full object-cover transition-opacity duration-700 opacity-100 group-hover:opacity-0"
+                 style={{ filter: 'sepia(0.3) brightness(0.85) contrast(0.9) grayscale(0.2)' }}
                />
                
                 <div className="absolute top-4 left-4 bg-black/70 text-white px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider backdrop-blur-md group-hover:opacity-0 transition-opacity duration-700">

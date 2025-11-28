@@ -28,6 +28,17 @@ const Features: React.FC = () => {
     }
   ];
 
+  const additionalServices = [
+    t.features.service_airduct,
+    t.features.service_carpet,
+    t.features.service_hardwood,
+    t.features.service_housekeeping,
+    t.features.service_tile,
+    t.features.service_windows,
+    t.features.service_moving,
+    t.features.service_nicotine
+  ];
+
   return (
     <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -48,6 +59,25 @@ const Features: React.FC = () => {
           ))}
         </div>
 
+        {/* Additional Services List */}
+        <div className="mb-16 bg-white border border-slate-100 shadow-sm rounded-3xl p-8 md:p-12 relative overflow-hidden">
+          {/* Decorative background element */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
+          
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-bold text-slate-900 mb-2">{t.features.more_services_title}</h3>
+            <p className="text-slate-500">{t.features.more_services_subtitle}</p>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+            {additionalServices.map((service, idx) => (
+              <div key={idx} className="flex items-center gap-3 p-4 rounded-xl bg-slate-50 hover:bg-primary-50 hover:shadow-sm transition-all border border-transparent hover:border-primary-100">
+                <div className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0"></div>
+                <span className="font-medium text-slate-700 text-sm">{service}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Business Info / Extra Services */}
         <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
            <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
@@ -57,11 +87,11 @@ const Features: React.FC = () => {
                   {t.features.biz_title}
                 </h3>
                 <div className="grid md:grid-cols-2 gap-6">
-                   <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                   <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
                       <h4 className="font-bold text-lg mb-2 text-primary-200">{t.features.biz_comm_title}</h4>
                       <p className="text-sm text-slate-300">{t.features.biz_comm_desc}</p>
                    </div>
-                   <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10">
+                   <div className="bg-white/10 p-4 rounded-xl backdrop-blur-sm border border-white/10 hover:bg-white/15 transition-colors">
                       <h4 className="font-bold text-lg mb-2 text-primary-200">{t.features.biz_emerg_title}</h4>
                       <p className="text-sm text-slate-300">{t.features.biz_emerg_desc}</p>
                    </div>
@@ -69,7 +99,7 @@ const Features: React.FC = () => {
              </div>
              <div className="hidden lg:block w-px h-32 bg-white/10"></div>
              <div>
-               <a href="#contact" className="inline-flex px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white rounded-xl font-semibold transition-colors">
+               <a href="#contact" className="inline-flex px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white rounded-xl font-semibold transition-colors shadow-lg shadow-primary-900/50">
                   {t.nav.book}
                </a>
              </div>
