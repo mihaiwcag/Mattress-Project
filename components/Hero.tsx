@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
   const { t } = useLanguage();
 
   return (
-    <section className="relative min-h-[90vh] flex items-center pt-20 overflow-hidden">
+    <section className="relative min-h-[90vh] flex flex-col justify-center pt-24 pb-12 overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img
@@ -14,16 +14,23 @@ const Hero: React.FC = () => {
           alt="Clean bright bedroom with comfortable mattress"
           className="w-full h-full object-cover object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/70 to-transparent lg:via-white/50" />
+        <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-transparent lg:via-white/60" />
+      </div>
+
+      {/* Full Width Impressive Banner */}
+      <div className="relative z-20 w-full bg-gradient-to-r from-slate-900 via-primary-900 to-slate-900 text-white py-5 mb-8 md:mb-12 border-y border-white/20 shadow-2xl shadow-slate-900/20 backdrop-blur-md transform transition-all hover:scale-[1.005] duration-500">
+        <div className="container mx-auto px-6 flex items-center gap-4 md:gap-6">
+           <div className="flex-shrink-0 p-2 bg-yellow-400 rounded-full shadow-[0_0_25px_rgba(250,204,21,0.6)] animate-pulse">
+              <IconStar className="w-5 h-5 md:w-6 md:h-6 text-slate-900" fill />
+           </div>
+           <span className="font-bold text-sm md:text-lg tracking-wide leading-snug drop-shadow-md">
+             {t.hero.rated}
+           </span>
+        </div>
       </div>
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-2xl">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-primary-700 text-xs font-semibold mb-6">
-            <IconStar className="w-3.5 h-3.5 fill-primary-600 text-primary-600" fill />
-            {t.hero.rated}
-          </div>
-          
           <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-slate-900 tracking-tight leading-[1.1] mb-12">
             {t.hero.titleStart} <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary-600 to-primary-400">
