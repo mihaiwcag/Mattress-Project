@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Full Width Impressive Banner */}
-      <div className="relative z-20 w-full bg-gradient-to-r from-slate-900 via-primary-900 to-slate-900 text-white py-5 mb-8 md:mb-12 border-y border-white/20 shadow-2xl shadow-slate-900/20 backdrop-blur-md transform transition-all hover:scale-[1.005] duration-500">
+      <div className="relative z-20 w-full bg-gradient-to-r from-primary-600 to-primary-500 text-white py-5 mb-8 md:mb-12 border-y border-white/20 shadow-2xl shadow-primary-900/20 backdrop-blur-md transform transition-all hover:scale-[1.005] duration-500">
         <div className="container mx-auto px-6 flex items-center gap-4 md:gap-6">
            <div className="flex-shrink-0 p-2 bg-yellow-400 rounded-full shadow-[0_0_25px_rgba(250,204,21,0.6)] animate-pulse">
               <IconStar className="w-5 h-5 md:w-6 md:h-6 text-slate-900" fill />
