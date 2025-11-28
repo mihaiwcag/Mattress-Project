@@ -38,14 +38,20 @@ const ContactForm: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 mb-2">{t.contact.call}</h4>
-                    <div className="flex flex-col gap-2">
-                      <a href="tel:+14169992647" className="group flex flex-wrap items-center gap-2 text-slate-600 hover:text-primary-600 transition-colors">
-                          <span className="font-bold font-mono tracking-tight">+1 416-999-2647</span>
-                          <span className="text-xs font-medium bg-blue-50 text-blue-700 px-2 py-0.5 rounded-md border border-blue-100 group-hover:bg-primary-50 group-hover:text-primary-700">Mihai (EN)</span>
+                    <div className="flex flex-col gap-3">
+                      <a href="tel:+14169992647" className="group flex flex-wrap items-center gap-3 text-slate-600 hover:text-primary-600 transition-colors p-2 -ml-2 hover:bg-white rounded-xl hover:shadow-sm border border-transparent hover:border-slate-100">
+                          <img src="https://flagcdn.com/w40/ca.png" alt="Canada" className="w-8 h-5 object-cover rounded shadow-sm border border-slate-200" />
+                          <div className="flex flex-col">
+                             <span className="font-bold font-mono tracking-tight text-lg leading-none">+1 416-999-2647</span>
+                             <span className="text-xs font-bold text-blue-600 mt-1 uppercase tracking-wider">Mihai (EN)</span>
+                          </div>
                       </a>
-                      <a href="tel:+40727527147" className="group flex flex-wrap items-center gap-2 text-slate-600 hover:text-primary-600 transition-colors">
-                          <span className="font-bold font-mono tracking-tight">+40 727-527-147</span>
-                          <span className="text-xs font-medium bg-red-50 text-red-700 px-2 py-0.5 rounded-md border border-red-100 group-hover:bg-primary-50 group-hover:text-primary-700">Alex (RO)</span>
+                      <a href="tel:+40727527147" className="group flex flex-wrap items-center gap-3 text-slate-600 hover:text-primary-600 transition-colors p-2 -ml-2 hover:bg-white rounded-xl hover:shadow-sm border border-transparent hover:border-slate-100">
+                          <img src="https://flagcdn.com/w40/ro.png" alt="Romania" className="w-8 h-5 object-cover rounded shadow-sm border border-slate-200" />
+                          <div className="flex flex-col">
+                             <span className="font-bold font-mono tracking-tight text-lg leading-none">+40 727-527-147</span>
+                             <span className="text-xs font-bold text-red-600 mt-1 uppercase tracking-wider">Alex (RO)</span>
+                          </div>
                       </a>
                     </div>
                   </div>
