@@ -40,8 +40,20 @@ const Features: React.FC = () => {
     }
   ];
 
+  const handleScrollToContact = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const element = document.getElementById('contact');
+    if (element) {
+      const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80;
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
-    <section id="services" className="py-24 bg-white relative">
+    <section id="services" className="py-24 bg-white/90 backdrop-blur-sm relative">
       <div className="container mx-auto px-6">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">{t.features.title}</h2>
@@ -53,7 +65,7 @@ const Features: React.FC = () => {
             <div 
               key={idx} 
               onClick={() => setActiveFeature(feature)}
-              className="group p-8 rounded-3xl bg-slate-50 hover:bg-primary-50 transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 border border-transparent hover:border-primary-100"
+              className="group p-8 rounded-3xl bg-slate-50/80 hover:bg-primary-50/90 transition-all duration-300 cursor-pointer hover:shadow-xl hover:-translate-y-1 border border-transparent hover:border-primary-100 backdrop-blur-sm"
             >
               <div className="w-14 h-14 bg-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform duration-300">
                 {feature.icon}
@@ -68,7 +80,7 @@ const Features: React.FC = () => {
         </div>
 
         {/* Business Info / Extra Services */}
-        <div className="bg-slate-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
+        <div className="bg-slate-900/95 backdrop-blur-md rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
            <div className="relative z-10 flex flex-col md:flex-row justify-between items-center gap-8">
              <div className="flex-1">
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
@@ -88,7 +100,11 @@ const Features: React.FC = () => {
              </div>
              <div className="hidden lg:block w-px h-32 bg-white/10"></div>
              <div>
-               <a href="#contact" className="inline-flex px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white rounded-xl font-semibold transition-colors shadow-lg shadow-primary-900/50">
+               <a 
+                 href="#contact" 
+                 onClick={handleScrollToContact}
+                 className="inline-flex px-6 py-3 bg-primary-600 hover:bg-primary-500 text-white rounded-xl font-semibold transition-colors shadow-lg shadow-primary-900/50"
+               >
                   {t.nav.book}
                </a>
              </div>

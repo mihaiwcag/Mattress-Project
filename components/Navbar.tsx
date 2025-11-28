@@ -20,7 +20,7 @@ const Navbar: React.FC = () => {
     const targetId = href.replace('#', '');
     const element = document.getElementById(targetId);
     if (element) {
-      const offsetTop = element.getBoundingClientRect().top + window.pageYOffset - 80; // Subtract nav height
+      const offsetTop = element.getBoundingClientRect().top + window.scrollY - 80; // Subtract nav height
       window.scrollTo({
         top: offsetTop,
         behavior: 'smooth'
@@ -61,15 +61,26 @@ const Navbar: React.FC = () => {
           <div className="flex items-center bg-white/50 backdrop-blur-sm rounded-full p-1 border border-slate-200/50 shadow-sm ml-4">
              <button 
                onClick={() => setLanguage('en')}
-               className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'en' ? 'bg-primary-600 text-white shadow-sm' : 'text-slate-600 hover:text-primary-600'}`}
+               className={`w-8 h-6 rounded-full overflow-hidden border border-slate-200 transition-all ${language === 'en' ? 'ring-2 ring-primary-500 scale-110' : 'opacity-70 hover:opacity-100'}`}
+               title="English"
              >
-               EN
+               <img 
+                 src="https://flagcdn.com/w40/gb.png" 
+                 alt="English" 
+                 className="w-full h-full object-cover"
+               />
              </button>
+             <div className="w-2" />
              <button 
                onClick={() => setLanguage('ro')}
-               className={`px-3 py-1 rounded-full text-xs font-bold transition-all ${language === 'ro' ? 'bg-primary-600 text-white shadow-sm' : 'text-slate-600 hover:text-primary-600'}`}
+               className={`w-8 h-6 rounded-full overflow-hidden border border-slate-200 transition-all ${language === 'ro' ? 'ring-2 ring-primary-500 scale-110' : 'opacity-70 hover:opacity-100'}`}
+               title="Română"
              >
-               RO
+               <img 
+                 src="https://flagcdn.com/w40/ro.png" 
+                 alt="Română" 
+                 className="w-full h-full object-cover"
+               />
              </button>
           </div>
 
@@ -106,17 +117,19 @@ const Navbar: React.FC = () => {
           ))}
           
           <div className="flex justify-center gap-4 py-4 border-y border-slate-100">
-            <button 
+             <button 
                onClick={() => setLanguage('en')}
-               className={`font-bold text-lg ${language === 'en' ? 'text-primary-600' : 'text-slate-400'}`}
+               className={`flex items-center gap-2 font-bold text-lg ${language === 'en' ? 'text-primary-600' : 'text-slate-400'}`}
              >
+               <img src="https://flagcdn.com/w40/gb.png" alt="English" className="w-6 h-4 rounded-sm object-cover" />
                English
              </button>
              <span className="text-slate-300">|</span>
              <button 
                onClick={() => setLanguage('ro')}
-               className={`font-bold text-lg ${language === 'ro' ? 'text-primary-600' : 'text-slate-400'}`}
+               className={`flex items-center gap-2 font-bold text-lg ${language === 'ro' ? 'text-primary-600' : 'text-slate-400'}`}
              >
+               <img src="https://flagcdn.com/w40/ro.png" alt="Română" className="w-6 h-4 rounded-sm object-cover" />
                Română
              </button>
           </div>
