@@ -28,17 +28,6 @@ const Features: React.FC = () => {
     }
   ];
 
-  const additionalServices = [
-    t.features.service_airduct,
-    t.features.service_carpet,
-    t.features.service_hardwood,
-    t.features.service_housekeeping,
-    t.features.service_tile,
-    t.features.service_windows,
-    t.features.service_moving,
-    t.features.service_nicotine
-  ];
-
   return (
     <section id="services" className="py-24 bg-white">
       <div className="container mx-auto px-6">
@@ -47,7 +36,7 @@ const Features: React.FC = () => {
           <p className="text-slate-500 text-lg">{t.features.subtitle}</p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
           {features.map((feature, idx) => (
             <div key={idx} className="group p-8 rounded-3xl bg-slate-50 hover:bg-primary-50 transition-colors duration-300">
               <div className="w-14 h-14 bg-primary-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-primary-500/20 group-hover:scale-110 transition-transform duration-300">
@@ -57,25 +46,6 @@ const Features: React.FC = () => {
               <p className="text-slate-600 leading-relaxed">{feature.description}</p>
             </div>
           ))}
-        </div>
-
-        {/* Additional Services List */}
-        <div className="mb-16 bg-white border border-slate-100 shadow-sm rounded-3xl p-8 md:p-12 relative overflow-hidden">
-          {/* Decorative background element */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-slate-50 rounded-full blur-3xl -z-10 translate-x-1/2 -translate-y-1/2"></div>
-          
-          <div className="text-center mb-10">
-            <h3 className="text-2xl font-bold text-slate-900 mb-2">{t.features.more_services_title}</h3>
-            <p className="text-slate-500">{t.features.more_services_subtitle}</p>
-          </div>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {additionalServices.map((service, idx) => (
-              <div key={idx} className="flex items-center gap-3 p-4 rounded-xl bg-slate-50 hover:bg-primary-50 hover:shadow-sm transition-all border border-transparent hover:border-primary-100">
-                <div className="w-2 h-2 rounded-full bg-primary-500 flex-shrink-0"></div>
-                <span className="font-medium text-slate-700 text-sm">{service}</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Business Info / Extra Services */}
